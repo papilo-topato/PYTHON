@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="email"], select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Event Registration Form</h2>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="college">College:</label>
+        <input type="text" id="college" name="college" required>
+      </div>
+
+      <div class="form-group">
+        <label for="event">Event:</label>
+        <select id="event" name="event" required>
+          <option value="">Select an event</option>
+          <option value="event1">cricket</option>
+          <option value="event2">dance</option>
+          <option value="event3">workshop</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var form = event.target;
+
+      // Get form values
+      var name = form.elements["name"].value;
+      var email = form.elements["email"].value;
+      var college = form.elements["college"].value;
+      var event = form.elements["event"].value;
+
+      // Do something with the form values (e.g., submit to a server)
+      console.log("Name: " + name);
+      console.log("Email: " + email);
+      console.log("College: " + college);
+      console.log("Event: " + event);
+
+      // Optionally, you can submit the form to a server using AJAX
+      // Example using Fetch API:
+      /*
+      fetch("http://example.com/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          college: college,
+          event: event
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+      */
+    });
+  </script>
+</body>
+</html>
